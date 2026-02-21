@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "A Shinchan endless runner game where Shinchan runs towards chocobi chips, collecting points while avoiding obstacles",
+  "architectural_notes": [
+    "Side-scrolling endless runner game mechanic",
+    "Keyboard and mouse input handling for dual control scheme",
+    "Dynamic difficulty scaling based on score/time"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Shinchan character sprite in running pose, anime style with his signature red shirt and yellow shorts (shinchan-running.dim_128x128.png)\n- Chocobi chocolate chip snack illustration, small yellow package with cartoon face (chocobi-chip.dim_64x64.png)\n- Rock obstacle, simple cartoon stone with shading (obstacle-rock.dim_80x80.png)\n- Puddle obstacle, blue water splash with cartoon style (obstacle-puddle.dim_100x60.png)\n- Scrolling background with Japanese neighborhood scenery, bright and colorful (game-background.dim_1920x600.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-side-scrolling-endless-runner-game-where-shinchan-character-runs-continuously-from-left-to-right-across-the-screen",
+      "title": "Create a side-scrolling endless runner game where Shinchan character runs continuously from left to right across the screen",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-chocobi-chip-collectibles-that-spawn-randomly-along-the-running-path-which-shinchan-can-collect-for-points",
+      "title": "Implement chocobi chip collectibles that spawn randomly along the running path, which Shinchan can collect for points",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-obstacles-rocks-and-puddles-that-spawn-randomly-and-cause-game-over-if-shinchan-collides-with-them",
+      "title": "Add obstacles (rocks and puddles) that spawn randomly and cause game over if Shinchan collides with them",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-progressive-difficulty-system-where-game-speed-increases-as-player-collects-more-chocobi-chips",
+      "title": "Implement progressive difficulty system where game speed increases as player collects more chocobi chips",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-dual-control-system-supporting-both-keyboard-arrow-keys-up-down-or-jump-and-mouse-clicks-for-controlling-shinchan-s-movement",
+      "title": "Implement dual control system supporting both keyboard arrow keys (up/down or jump) and mouse clicks for controlling Shinchan's movement",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-score-tracking-system-that-displays-current-points-increments-with-each-chocobi-chip-collected-and-shows-final-score-on-game-over",
+      "title": "Create score tracking system that displays current points, increments with each chocobi chip collected, and shows final score on game over",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-cohesive-visual-theme-inspired-by-the-shinchan-anime-aesthetic-with-playful-colors-cartoon-style-graphics-and-cheerful-ui-elements-that-match-the-lighthearted-tone-of-the-game",
+      "title": "Design a cohesive visual theme inspired by the Shinchan anime aesthetic with playful colors, cartoon-style graphics, and cheerful UI elements that match the lighthearted tone of the game",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-generated-character-and-game-asset-images-as-static-assets-from-frontend-public-assets-generated-directory",
+      "title": "Display generated character and game asset images as static assets from frontend/public/assets/generated directory",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Side-scrolling gameplay with Shinchan running left-to-right",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Obstacles (rocks/puddles) for Shinchan to avoid",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Chocobi chips to collect for points",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Progressive difficulty - game speeds up over time",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Dual control support - keyboard arrow keys and mouse clicks",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Score tracking system for collected chips",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "2d",
+  "projectName": "Shinchan Runner",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

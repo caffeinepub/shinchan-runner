@@ -1,0 +1,245 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Shinchan Endless Runner Game with Obstacles and Scoring",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create side-scrolling endless runner with continuously running Shinchan character",
+      "acceptanceCriteria": [
+        "Shinchan character is visible and animated running left-to-right",
+        "Background scrolls continuously to create movement effect",
+        "Game loop runs smoothly at consistent frame rate"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Game.tsx",
+          "operation": "create",
+          "description": "Create main Game component using React Three Fiber for 2D game rendering. Implement game loop with useFrame hook for smooth animation. Set up Canvas with orthographic camera for 2D perspective. Initialize game state including isRunning, gameSpeed, and scrollPosition. Wire generated image frontend/public/assets/generated/shinchan-running.dim_128x128.png and frontend/public/assets/generated/game-background.dim_1920x600.png as static assets."
+        },
+        {
+          "path": "frontend/src/components/Player.tsx",
+          "operation": "create",
+          "description": "Create Player component representing Shinchan character. Implement sprite rendering with generated image frontend/public/assets/generated/shinchan-running.dim_128x128.png using React Three Fiber plane geometry with texture. Add running animation logic and position state management. Handle vertical movement bounds."
+        },
+        {
+          "path": "frontend/src/components/Background.tsx",
+          "operation": "create",
+          "description": "Create scrolling Background component using generated image frontend/public/assets/generated/game-background.dim_1920x600.png. Implement infinite scrolling effect by positioning and translating background planes based on game speed. Use React Three Fiber to render background layers."
+        },
+        {
+          "path": "frontend/src/hooks/useGameLoop.ts",
+          "operation": "create",
+          "description": "Create custom hook managing game loop state and timing. Use useFrame from React Three Fiber to update game state each frame. Track deltaTime for consistent frame rate independent updates. Return game state update functions and current game status."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire Game component into App. Add route or direct rendering for the game view. Ensure canvas container has appropriate dimensions for responsive gameplay."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement chocobi chip collectibles with random spawning and collision detection",
+      "acceptanceCriteria": [
+        "Chocobi chips appear at random intervals along the path",
+        "Collision detection registers when Shinchan touches a chip",
+        "Chips disappear upon collection and increment score"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Collectible.tsx",
+          "operation": "create",
+          "description": "Create Collectible component for chocobi chips using generated image frontend/public/assets/generated/chocobi-chip.dim_64x64.png. Render chip sprite with React Three Fiber plane and texture. Include position props and visibility state."
+        },
+        {
+          "path": "frontend/src/hooks/useCollectibles.ts",
+          "operation": "create",
+          "description": "Create custom hook managing collectible spawning logic. Implement random spawn timing and positioning along the game path. Maintain array of active collectibles with unique IDs and positions. Provide functions to add and remove collectibles."
+        },
+        {
+          "path": "frontend/src/utils/collision.ts",
+          "operation": "create",
+          "description": "Create collision detection utility with functions for bounding box intersection checks. Implement collision detection between player and collectibles/obstacles. Return collision results with entity IDs."
+        },
+        {
+          "path": "frontend/src/components/Game.tsx",
+          "operation": "modify",
+          "description": "Integrate collectible spawning using useCollectibles hook. Add collision detection in game loop using collision utility. Handle chip collection by removing collectible and incrementing score. Render Collectible components for each active chip."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add rock and puddle obstacles with collision-based game over",
+      "acceptanceCriteria": [
+        "Multiple obstacle types (rocks, puddles) spawn randomly",
+        "Collision detection triggers game over state on contact",
+        "Obstacles are visually distinct from collectibles"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Obstacle.tsx",
+          "operation": "create",
+          "description": "Create Obstacle component supporting multiple types. Use generated images frontend/public/assets/generated/obstacle-rock.dim_80x80.png and frontend/public/assets/generated/obstacle-puddle.dim_100x60.png based on obstacle type prop. Render appropriate sprite with React Three Fiber plane and texture. Include position and type props."
+        },
+        {
+          "path": "frontend/src/hooks/useObstacles.ts",
+          "operation": "create",
+          "description": "Create custom hook managing obstacle spawning with random type selection (rock or puddle). Implement spawn timing based on game difficulty. Maintain array of active obstacles with positions and types. Provide functions to add and remove obstacles."
+        },
+        {
+          "path": "frontend/src/components/Game.tsx",
+          "operation": "modify",
+          "description": "Integrate obstacle spawning using useObstacles hook. Add collision detection between player and obstacles in game loop. Trigger game over state when collision occurs. Render Obstacle components for each active obstacle. Handle game over screen display."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Implement progressive difficulty with increasing game speed based on score",
+      "acceptanceCriteria": [
+        "Scrolling speed increases gradually based on score",
+        "Difficulty progression is noticeable but not abrupt",
+        "Speed increase caps at a maximum playable level"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/difficulty.ts",
+          "operation": "create",
+          "description": "Create difficulty calculation utility. Implement function that calculates game speed based on current score. Define base speed, speed increment per score threshold, and maximum speed cap. Return adjusted speed value."
+        },
+        {
+          "path": "frontend/src/components/Game.tsx",
+          "operation": "modify",
+          "description": "Import difficulty utility and apply speed calculation in game loop. Update gameSpeed state based on current score using difficulty function. Pass updated speed to background scrolling and obstacle/collectible spawn rates."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Implement keyboard and mouse controls for player movement",
+      "acceptanceCriteria": [
+        "Arrow keys control Shinchan's vertical position or jumping",
+        "Mouse clicks provide alternative control method",
+        "Both input methods work simultaneously and responsively"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useControls.ts",
+          "operation": "create",
+          "description": "Create custom hook managing keyboard and mouse input. Add event listeners for arrow key presses (up/down or space for jump) and mouse clicks. Track input state and return control signals (jump, moveUp, moveDown). Clean up listeners on unmount."
+        },
+        {
+          "path": "frontend/src/components/Player.tsx",
+          "operation": "modify",
+          "description": "Integrate useControls hook to handle player movement. Update player vertical position based on control inputs. Implement jump mechanics or continuous vertical movement depending on control signal. Ensure responsive movement with smooth transitions."
+        },
+        {
+          "path": "frontend/src/components/Game.tsx",
+          "operation": "modify",
+          "description": "Pass control state from useControls to Player component. Ensure controls are active only during running game state (not during game over)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Create score tracking with display during gameplay and on game over screen",
+      "acceptanceCriteria": [
+        "Current score is visible during gameplay",
+        "Score increments correctly for each chip collected",
+        "Game over screen displays final score with restart option"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ScoreDisplay.tsx",
+          "operation": "create",
+          "description": "Create ScoreDisplay component showing current score during gameplay. Style with playful typography matching anime aesthetic. Position in top corner of game view. Accept score prop and render with appropriate formatting."
+        },
+        {
+          "path": "frontend/src/components/GameOver.tsx",
+          "operation": "create",
+          "description": "Create GameOver screen component displaying final score and restart button. Style with cheerful UI elements matching Shinchan theme. Include restart callback prop to reset game state. Show final score prominently with playful messaging."
+        },
+        {
+          "path": "frontend/src/components/Game.tsx",
+          "operation": "modify",
+          "description": "Add score state to Game component. Increment score when collectibles are collected. Render ScoreDisplay component with current score during gameplay. Show GameOver component when game ends, passing final score and restart handler. On restart, reset score, game speed, and spawn new entities."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Ensure Game component is properly wired and score state persists correctly through game lifecycle."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Design cohesive Shinchan anime-inspired visual theme with playful colors and cartoon graphics",
+      "acceptanceCriteria": [
+        "Visual style is consistent across all game elements",
+        "Color palette and typography reflect anime-inspired aesthetic",
+        "UI elements are playful and appropriate for the game's tone"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define anime-inspired color palette with bright, cheerful colors. Add custom font imports for playful typography. Set global styles for game UI elements including buttons, text, and overlays. Use colors that match Shinchan's red/yellow signature outfit theme."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with custom colors for Shinchan aesthetic (bright reds, yellows, blues). Add custom font families for anime-style typography. Define spacing and border radius values for cartoon-style UI elements."
+        },
+        {
+          "path": "frontend/src/components/GameOver.tsx",
+          "operation": "modify",
+          "description": "Apply playful styling using custom theme colors and typography. Style restart button with cheerful appearance including hover effects and rounded corners matching cartoon aesthetic."
+        },
+        {
+          "path": "frontend/src/components/ScoreDisplay.tsx",
+          "operation": "modify",
+          "description": "Apply anime-inspired typography and color scheme. Use bold, playful fonts and bright colors that stand out against game background. Add subtle shadows or borders for readability."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Display generated character and game asset images from public assets directory",
+      "acceptanceCriteria": [
+        "All generated images load from public/assets/generated",
+        "Images are properly sized and optimized for gameplay",
+        "Fallback handling for missing assets"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/assets.ts",
+          "operation": "create",
+          "description": "Create asset loading utility with functions to load textures from frontend/public/assets/generated directory. Define asset paths for shinchan-running.dim_128x128.png, chocobi-chip.dim_64x64.png, obstacle-rock.dim_80x80.png, obstacle-puddle.dim_100x60.png, and game-background.dim_1920x600.png. Include error handling and fallback for missing assets. Use React Three Fiber's useTexture or useLoader for texture loading."
+        },
+        {
+          "path": "frontend/src/components/Player.tsx",
+          "operation": "modify",
+          "description": "Use assets utility to load texture from frontend/public/assets/generated/shinchan-running.dim_128x128.png. Apply texture to plane material. Handle loading states and fallback display."
+        },
+        {
+          "path": "frontend/src/components/Background.tsx",
+          "operation": "modify",
+          "description": "Use assets utility to load texture from frontend/public/assets/generated/game-background.dim_1920x600.png. Apply texture to background plane materials. Handle loading states."
+        },
+        {
+          "path": "frontend/src/components/Collectible.tsx",
+          "operation": "modify",
+          "description": "Use assets utility to load texture from frontend/public/assets/generated/chocobi-chip.dim_64x64.png. Apply texture to plane material. Handle loading states."
+        },
+        {
+          "path": "frontend/src/components/Obstacle.tsx",
+          "operation": "modify",
+          "description": "Use assets utility to load textures from frontend/public/assets/generated/obstacle-rock.dim_80x80.png and frontend/public/assets/generated/obstacle-puddle.dim_100x60.png based on obstacle type. Apply appropriate texture to plane material. Handle loading states."
+        }
+      ]
+    }
+  ]
+}

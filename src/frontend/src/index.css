@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Bangers&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 1rem;
+        --background: 0.98 0 0;
+        --foreground: 0.2 0 0;
+        --card: 1 0 0;
+        --card-foreground: 0.2 0 0;
+        --popover: 1 0 0;
+        --popover-foreground: 0.2 0 0;
+        --primary: 0.55 0.22 25;
+        --primary-foreground: 1 0 0;
+        --secondary: 0.75 0.18 65;
+        --secondary-foreground: 0.2 0 0;
+        --muted: 0.96 0.01 85;
+        --muted-foreground: 0.5 0.01 85;
+        --accent: 0.85 0.15 45;
+        --accent-foreground: 0.2 0 0;
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 1 0 0;
+        --border: 0.9 0.02 85;
+        --input: 0.9 0.02 85;
+        --ring: 0.55 0.22 25;
+        --chart-1: 0.55 0.22 25;
+        --chart-2: 0.75 0.18 65;
+        --chart-3: 0.65 0.15 140;
+        --chart-4: 0.85 0.15 45;
+        --chart-5: 0.7 0.12 280;
+        
+        /* Shinchan theme colors */
+        --shinchan-red: 0.55 0.22 25;
+        --shinchan-yellow: 0.85 0.15 85;
+        --shinchan-orange: 0.7 0.18 45;
+        --shinchan-blue: 0.65 0.15 240;
+    }
+
+    .dark {
+        --background: 0.2 0 0;
+        --foreground: 0.98 0 0;
+        --card: 0.25 0 0;
+        --card-foreground: 0.98 0 0;
+        --popover: 0.25 0 0;
+        --popover-foreground: 0.98 0 0;
+        --primary: 0.75 0.18 65;
+        --primary-foreground: 0.2 0 0;
+        --secondary: 0.35 0.05 85;
+        --secondary-foreground: 0.98 0 0;
+        --muted: 0.35 0.05 85;
+        --muted-foreground: 0.65 0.05 85;
+        --accent: 0.85 0.15 45;
+        --accent-foreground: 0.2 0 0;
+        --destructive: 0.6 0.22 25;
+        --destructive-foreground: 0.98 0 0;
+        --border: 0.35 0.05 85;
+        --input: 0.35 0.05 85;
+        --ring: 0.75 0.18 65;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Fredoka', sans-serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Bangers', cursive;
+        letter-spacing: 0.05em;
+    }
+}
+
+@layer utilities {
+    .text-shinchan-red {
+        color: oklch(var(--shinchan-red));
+    }
+    
+    .text-shinchan-yellow {
+        color: oklch(var(--shinchan-yellow));
+    }
+    
+    .text-shinchan-orange {
+        color: oklch(var(--shinchan-orange));
+    }
+    
+    .text-shinchan-blue {
+        color: oklch(var(--shinchan-blue));
+    }
+    
+    .bg-shinchan-red {
+        background-color: oklch(var(--shinchan-red));
+    }
+    
+    .bg-shinchan-yellow {
+        background-color: oklch(var(--shinchan-yellow));
+    }
+    
+    .bg-shinchan-orange {
+        background-color: oklch(var(--shinchan-orange));
+    }
+    
+    .bg-shinchan-blue {
+        background-color: oklch(var(--shinchan-blue));
+    }
+    
+    .border-shinchan-red {
+        border-color: oklch(var(--shinchan-red));
+    }
+    
+    .border-shinchan-yellow {
+        border-color: oklch(var(--shinchan-yellow));
+    }
+    
+    .border-shinchan-orange {
+        border-color: oklch(var(--shinchan-orange));
+    }
+}

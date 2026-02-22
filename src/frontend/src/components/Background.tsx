@@ -11,7 +11,7 @@ export default function Background({ speed }: BackgroundProps) {
   const bg1Ref = useRef<THREE.Mesh>(null);
   const bg2Ref = useRef<THREE.Mesh>(null);
   
-  const texture = useLoader(TextureLoader, '/assets/generated/game-background.dim_1920x600.png');
+  const texture = useLoader(TextureLoader, '/assets/generated/traffic-road-bg.dim_1920x600.png');
 
   useFrame((state, delta) => {
     if (!bg1Ref.current || !bg2Ref.current) return;

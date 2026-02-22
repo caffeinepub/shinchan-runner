@@ -1,157 +1,82 @@
 {
   "kind": "build_request",
-  "title": "Create Shinchan endless runner game with obstacles and scoring",
+  "title": "Update game theme to traffic road setting with traffic obstacles",
   "projectName": "Shinchan Runner",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Create a side-scrolling endless runner game where Shinchan character runs continuously from left to right across the screen",
+      "id": "REQ-9",
+      "text": "Replace the current game background with a scrolling traffic road scene that maintains the infinite scrolling behavior of the existing Background component",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-3",
-          "msg-5"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Shinchan character is visible and animated running left-to-right",
-        "Background scrolls continuously to create movement effect",
-        "Game loop runs smoothly at consistent frame rate"
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Implement chocobi chip collectibles that spawn randomly along the running path, which Shinchan can collect for points",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2",
           "msg-5"
         ],
         "quotes": [
-          "scinchan is runing towaeds the chokochips and getiing points"
+          "Background: Replacing the current scene with a traffic road background"
         ]
       },
       "acceptanceCriteria": [
-        "Chocobi chips appear at random intervals along the path",
-        "Collision detection registers when Shinchan touches a chip",
-        "Chips disappear upon collection and increment score"
+        "Background displays a traffic road texture with lane markings",
+        "Road scrolls continuously from right to left matching game speed",
+        "Seamless infinite scrolling is maintained without visible seams"
       ]
     },
     {
-      "id": "REQ-3",
-      "text": "Add obstacles (rocks and puddles) that spawn randomly and cause game over if Shinchan collides with them",
+      "id": "REQ-10",
+      "text": "Replace existing obstacle types (rocks and puddles) with traffic-themed obstacles including cars and traffic cones in the Obstacle component",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-5"
+        ],
+        "quotes": [
+          "Obstacles: Updating to traffic-themed obstacles like cars and traffic cones (replacing rocks and puddles)"
         ]
       },
       "acceptanceCriteria": [
-        "Multiple obstacle types (rocks, puddles) spawn randomly",
-        "Collision detection triggers game over state on contact",
-        "Obstacles are visually distinct from collectibles"
+        "Obstacle component supports 'car' and 'trafficCone' types instead of 'rock' and 'puddle'",
+        "Cars and traffic cones have appropriate sizes and textures",
+        "Collision detection works correctly with new obstacle types",
+        "Game over is triggered when Shinchan collides with traffic obstacles"
       ]
     },
     {
-      "id": "REQ-4",
-      "text": "Implement progressive difficulty system where game speed increases as player collects more chocobi chips",
+      "id": "REQ-11",
+      "text": "Update the Game component's obstacle spawning logic to spawn traffic-themed obstacles (cars and traffic cones) instead of rocks and puddles",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-5"
+        ],
+        "quotes": [
+          "Obstacles: Updating to traffic-themed obstacles like cars and traffic cones (replacing rocks and puddles)"
         ]
       },
       "acceptanceCriteria": [
-        "Scrolling speed increases gradually based on score",
-        "Difficulty progression is noticeable but not abrupt",
-        "Speed increase caps at a maximum playable level"
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Implement dual control system supporting both keyboard arrow keys (up/down or jump) and mouse clicks for controlling Shinchan's movement",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4",
-          "msg-5"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Arrow keys control Shinchan's vertical position or jumping",
-        "Mouse clicks provide alternative control method",
-        "Both input methods work simultaneously and responsively"
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "text": "Create score tracking system that displays current points, increments with each chocobi chip collected, and shows final score on game over",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-2",
-          "msg-5"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Current score is visible during gameplay",
-        "Score increments correctly for each chip collected",
-        "Game over screen displays final score with restart option"
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "text": "Design a cohesive visual theme inspired by the Shinchan anime aesthetic with playful colors, cartoon-style graphics, and cheerful UI elements that match the lighthearted tone of the game",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Visual style is consistent across all game elements",
-        "Color palette and typography reflect anime-inspired aesthetic",
-        "UI elements are playful and appropriate for the game's tone"
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "text": "Display generated character and game asset images as static assets from frontend/public/assets/generated directory",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2",
-          "msg-5"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All generated images load from public/assets/generated",
-        "Images are properly sized and optimized for gameplay",
-        "Fallback handling for missing assets"
+        "Spawning logic randomly generates cars and traffic cones",
+        "Spawn rates and positions are appropriate for traffic road gameplay",
+        "Difficulty progression continues to work with new obstacle types"
       ]
     }
   ],
   "constraints": [
-    "Use React Three Fiber for 2D game rendering",
-    "Implement game loop with requestAnimationFrame or React Three Fiber's useFrame",
-    "Ensure responsive controls work on different screen sizes"
+    "Maintain all existing gameplay mechanics including endless runner, chocobi chip collection, progressive difficulty, dual controls, and score tracking",
+    "Keep the Shinchan anime aesthetic while adapting to traffic road theme",
+    "Do not modify backend logic or schema",
+    "Preserve the existing collision detection system in frontend/src/utils/collision.ts"
   ],
   "nonGoals": [
-    "Multiplayer functionality",
-    "Leaderboard or persistent high scores",
-    "Sound effects or background music",
-    "Multiple game levels or stages",
-    "Character customization options"
+    "Changing the core gameplay mechanics or controls",
+    "Adding new game features beyond the traffic road theme",
+    "Modifying the score system or difficulty progression formulas",
+    "Changing the backend actor implementation"
   ],
   "imageRequirements": {
     "required": [
-      "Shinchan character sprite in running pose, anime style with his signature red shirt and yellow shorts (shinchan-running.dim_128x128.png)",
-      "Chocobi chocolate chip snack illustration, small yellow package with cartoon face (chocobi-chip.dim_64x64.png)",
-      "Rock obstacle, simple cartoon stone with shading (obstacle-rock.dim_80x80.png)",
-      "Puddle obstacle, blue water splash with cartoon style (obstacle-puddle.dim_100x60.png)",
-      "Scrolling background with Japanese neighborhood scenery, bright and colorful (game-background.dim_1920x600.png)"
+      "Traffic road background with lane markings for infinite scrolling (traffic-road-bg.dim_1920x600.png)",
+      "Car obstacle sprite in side view for traffic road gameplay (car-obstacle.dim_128x64.png)",
+      "Traffic cone obstacle sprite for road hazards (traffic-cone.dim_64x64.png)"
     ],
     "edits": []
   }

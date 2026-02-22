@@ -5,7 +5,7 @@ import * as THREE from 'three';
 
 interface ObstacleProps {
   position: { x: number; y: number };
-  type: 'rock' | 'puddle';
+  type: 'car' | 'trafficCone';
   speed: number;
   onOffScreen: () => void;
 }
@@ -14,11 +14,11 @@ export default function Obstacle({ position, type, speed, onOffScreen }: Obstacl
   const meshRef = useRef<THREE.Mesh>(null);
   const posRef = useRef({ ...position });
   
-  const rockTexture = useLoader(TextureLoader, '/assets/generated/obstacle-rock.dim_80x80.png');
-  const puddleTexture = useLoader(TextureLoader, '/assets/generated/obstacle-puddle.dim_100x60.png');
+  const carTexture = useLoader(TextureLoader, '/assets/generated/car-obstacle.dim_128x64.png');
+  const trafficConeTexture = useLoader(TextureLoader, '/assets/generated/traffic-cone.dim_64x64.png');
 
-  const texture = type === 'rock' ? rockTexture : puddleTexture;
-  const size: [number, number] = type === 'rock' ? [1, 1] : [1.2, 0.8];
+  const texture = type === 'car' ? carTexture : trafficConeTexture;
+  const size: [number, number] = type === 'car' ? [1.28, 0.64] : [0.64, 0.64];
 
   useEffect(() => {
     if (texture) {

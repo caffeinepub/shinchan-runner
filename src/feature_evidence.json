@@ -2,13 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-create-a-side-scrolling-endless-runner-game-where-shinchan-character-runs-continuously-from-left-to-right-across-the-screen",
-      "featureTitle": "Create a side-scrolling endless runner game where Shinchan character runs continuously from left to right across the screen",
+      "featureId": "feature-replace-the-current-game-background-with-a-scrolling-traffic-road-scene-that-maintains-the-infinite-scrolling-behavior-of-the-existing-background-component",
+      "featureTitle": "Replace the current game background with a scrolling traffic road scene that maintains the infinite scrolling behavior of the existing Background component",
       "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/Background.tsx",
-        "frontend/src/components/Game.tsx",
-        "frontend/src/components/Player.tsx"
+        "frontend/src/components/Background.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -18,18 +15,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-1"
+        "REQ-9"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-implement-chocobi-chip-collectibles-that-spawn-randomly-along-the-running-path-which-shinchan-can-collect-for-points",
-      "featureTitle": "Implement chocobi chip collectibles that spawn randomly along the running path, which Shinchan can collect for points",
+      "featureId": "feature-replace-existing-obstacle-types-rocks-and-puddles-with-traffic-themed-obstacles-including-cars-and-traffic-cones-in-the-obstacle-component",
+      "featureTitle": "Replace existing obstacle types (rocks and puddles) with traffic-themed obstacles including cars and traffic cones in the Obstacle component",
       "files": [
-        "frontend/src/components/Collectible.tsx",
-        "frontend/src/components/Game.tsx",
-        "frontend/src/hooks/useCollectibles.ts",
-        "frontend/src/utils/collision.ts"
+        "frontend/src/components/Obstacle.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -39,16 +33,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-2"
+        "REQ-10"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-obstacles-rocks-and-puddles-that-spawn-randomly-and-cause-game-over-if-shinchan-collides-with-them",
-      "featureTitle": "Add obstacles (rocks and puddles) that spawn randomly and cause game over if Shinchan collides with them",
+      "featureId": "feature-update-the-game-component-s-obstacle-spawning-logic-to-spawn-traffic-themed-obstacles-cars-and-traffic-cones-instead-of-rocks-and-puddles",
+      "featureTitle": "Update the Game component's obstacle spawning logic to spawn traffic-themed obstacles (cars and traffic cones) instead of rocks and puddles",
       "files": [
         "frontend/src/components/Game.tsx",
-        "frontend/src/components/Obstacle.tsx",
         "frontend/src/hooks/useObstacles.ts"
       ],
       "components": [
@@ -59,109 +52,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-3"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-progressive-difficulty-system-where-game-speed-increases-as-player-collects-more-chocobi-chips",
-      "featureTitle": "Implement progressive difficulty system where game speed increases as player collects more chocobi chips",
-      "files": [
-        "frontend/src/components/Game.tsx",
-        "frontend/src/utils/difficulty.ts"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-4"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-dual-control-system-supporting-both-keyboard-arrow-keys-up-down-or-jump-and-mouse-clicks-for-controlling-shinchan-s-movement",
-      "featureTitle": "Implement dual control system supporting both keyboard arrow keys (up/down or jump) and mouse clicks for controlling Shinchan's movement",
-      "files": [
-        "frontend/src/components/Game.tsx",
-        "frontend/src/components/Player.tsx",
-        "frontend/src/hooks/useControls.ts"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-5"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-create-score-tracking-system-that-displays-current-points-increments-with-each-chocobi-chip-collected-and-shows-final-score-on-game-over",
-      "featureTitle": "Create score tracking system that displays current points, increments with each chocobi chip collected, and shows final score on game over",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/Game.tsx",
-        "frontend/src/components/GameOver.tsx",
-        "frontend/src/components/ScoreDisplay.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-6"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-design-a-cohesive-visual-theme-inspired-by-the-shinchan-anime-aesthetic-with-playful-colors-cartoon-style-graphics-and-cheerful-ui-elements-that-match-the-lighthearted-tone-of-the-game",
-      "featureTitle": "Design a cohesive visual theme inspired by the Shinchan anime aesthetic with playful colors, cartoon-style graphics, and cheerful UI elements that match the lighthearted tone of the game",
-      "files": [
-        "frontend/src/components/GameOver.tsx",
-        "frontend/src/components/ScoreDisplay.tsx",
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-7"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-display-generated-character-and-game-asset-images-as-static-assets-from-frontend-public-assets-generated-directory",
-      "featureTitle": "Display generated character and game asset images as static assets from frontend/public/assets/generated directory",
-      "files": [
-        "frontend/src/components/Background.tsx",
-        "frontend/src/components/Collectible.tsx",
-        "frontend/src/components/Obstacle.tsx",
-        "frontend/src/components/Player.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-8"
+        "REQ-11"
       ],
       "confidence": "high"
     }

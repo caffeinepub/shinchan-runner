@@ -3,19 +3,19 @@ import { useState, useCallback } from 'react';
 interface Obstacle {
   id: string;
   position: { x: number; y: number };
-  type: 'rock' | 'puddle';
+  type: 'car' | 'trafficCone';
 }
 
 export function useObstacles() {
   const [obstacles, setObstacles] = useState<Obstacle[]>([]);
 
   const spawnObstacle = useCallback(() => {
-    const type = Math.random() > 0.5 ? 'rock' : 'puddle';
+    const type = Math.random() > 0.5 ? 'car' : 'trafficCone';
     const newObstacle: Obstacle = {
       id: `obstacle-${Date.now()}-${Math.random()}`,
       position: {
         x: 12,
-        y: type === 'puddle' ? -2 : Math.random() > 0.5 ? -2 : 0,
+        y: type === 'trafficCone' ? -2 : Math.random() > 0.5 ? -2 : 0,
       },
       type,
     };

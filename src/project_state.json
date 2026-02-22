@@ -1,15 +1,16 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
-  "summary": "A Shinchan endless runner game where Shinchan runs towards chocobi chips, collecting points while avoiding obstacles",
+  "projectStateVersion": 5,
+  "summary": "A Shinchan endless runner game where Shinchan runs on a traffic road, collecting chocobi chips while avoiding traffic obstacles",
   "architectural_notes": [
     "Side-scrolling endless runner game mechanic",
     "Keyboard and mouse input handling for dual control scheme",
-    "Dynamic difficulty scaling based on score/time"
+    "Dynamic difficulty scaling based on score/time",
+    "Traffic road theme with anime aesthetic maintained"
   ],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Shinchan character sprite in running pose, anime style with his signature red shirt and yellow shorts (shinchan-running.dim_128x128.png)\n- Chocobi chocolate chip snack illustration, small yellow package with cartoon face (chocobi-chip.dim_64x64.png)\n- Rock obstacle, simple cartoon stone with shading (obstacle-rock.dim_80x80.png)\n- Puddle obstacle, blue water splash with cartoon style (obstacle-puddle.dim_100x60.png)\n- Scrolling background with Japanese neighborhood scenery, bright and colorful (game-background.dim_1920x600.png)",
+  "imageRequirements": "## Required Images\n- Traffic road background with lane markings for infinite scrolling (traffic-road-bg.dim_1920x600.png)\n- Car obstacle sprite in side view for traffic road gameplay (car-obstacle.dim_128x64.png)\n- Traffic cone obstacle sprite for road hazards (traffic-cone.dim_64x64.png)",
   "existing_features": [
     {
       "id": "feature-create-a-side-scrolling-endless-runner-game-where-shinchan-character-runs-continuously-from-left-to-right-across-the-screen",
@@ -74,6 +75,30 @@
         "REQ-8"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-replace-the-current-game-background-with-a-scrolling-traffic-road-scene-that-maintains-the-infinite-scrolling-behavior-of-the-existing-background-component",
+      "title": "Replace the current game background with a scrolling traffic road scene that maintains the infinite scrolling behavior of the existing Background component",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-existing-obstacle-types-rocks-and-puddles-with-traffic-themed-obstacles-including-cars-and-traffic-cones-in-the-obstacle-component",
+      "title": "Replace existing obstacle types (rocks and puddles) with traffic-themed obstacles including cars and traffic cones in the Obstacle component",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-game-component-s-obstacle-spawning-logic-to-spawn-traffic-themed-obstacles-cars-and-traffic-cones-instead-of-rocks-and-puddles",
+      "title": "Update the Game component's obstacle spawning logic to spawn traffic-themed obstacles (cars and traffic cones) instead of rocks and puddles",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -110,6 +135,18 @@
     {
       "id": "AR-6",
       "summary": "Score tracking system for collected chips",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Replace background with traffic road scene",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Replace obstacles with traffic-themed obstacles (cars, traffic cones)",
       "reqIds": [],
       "status": "pending"
     }

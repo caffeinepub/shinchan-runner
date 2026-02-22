@@ -76,7 +76,7 @@ export default function Game() {
 
     // Check obstacle collisions
     obstacles.forEach((obstacle) => {
-      const obstacleSize = obstacle.type === 'rock' ? 0.8 : 1.0;
+      const obstacleSize = obstacle.type === 'car' ? 1.0 : 0.6;
       if (checkCollision(playerPositionRef.current, obstacle.position, 0.8, obstacleSize)) {
         endGame();
       }
